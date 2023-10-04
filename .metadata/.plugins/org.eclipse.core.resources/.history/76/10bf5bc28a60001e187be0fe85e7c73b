@@ -1,0 +1,19 @@
+package com.mohit.corejava;
+
+public class VolkSwagan {
+	
+	public static void main(String args[]) {
+		
+		String input = "acab";
+		char str[] = input.toCharArray();
+		
+		for (int i = 0; i < str.length; i++) {
+			if ((str[i] == str[i - 1] + 1) || (str[i] == str[i - 1] - 1)) {
+				System.out.print(str[i]);
+			} else {
+				System.out.print("\n" + str[i]);
+			}
+		}}
+	}
+
+

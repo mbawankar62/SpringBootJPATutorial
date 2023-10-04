@@ -1,0 +1,22 @@
+package com.mohit.corejava;
+
+public class VolkSwagan {
+	
+	public static void main(String args[]) {
+		
+		String input = "acab";
+		char str[] = input.toCharArray();
+		
+		for(int i = 0 ; i<str.length()-1;i++) {
+			 
+			for(int j =1 ;j<=str.length();j++) {
+				
+				String s1 = str.;
+				&& str.charAt(j)
+			}
+			
+			
+		}
+	}
+
+}

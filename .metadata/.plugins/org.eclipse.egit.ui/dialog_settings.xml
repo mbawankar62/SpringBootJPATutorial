@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel" value="2"/>
+	<item key="GitSelectRepositoryPage.lastRepository" value="C:\Users\MOHIT\Desktop\GitDemo\mohit-java-repo\.git"/>
+	<list key="CommitDialog.authorValues">
+		<item value="Mohit Bawankar &lt;mbawankar62@gmail.com&gt;"/>
+		<item value="MOHIT &lt;MOHIT@LAPTOP-HHIC26NU&gt;"/>
+	</list>
+	<list key="CommitDialog.committerValues">
+		<item value="Mohit Bawankar &lt;mbawankar62@gmail.com&gt;"/>
+		<item value="MOHIT &lt;MOHIT@LAPTOP-HHIC26NU&gt;"/>
+	</list>
+	<list key="EGit.KnownHosts">
+		<item value="bitbucket.org"/>
+		<item value="git.eclipse.org"/>
+		<item value="github.com"/>
+	</list>
+	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://github.com/mbawankar62/SpringBootDataJPA.git"/>
+		<item value="https://github.com/mohitbawankar/SpringBootStudy.git"/>
+		<item value="https://github.com/Java-Techie-jt/spring-boot3-jwt.git"/>
+		<item value="https://github.com/Java-Techie-jt/spring-boot-security-3.0.git"/>
+		<item value="https://github.com/mohitbawankar/SpringSecurityCode.git"/>
+		<item value="https://github.com/mohitbawankar/mohit-java-repo.git"/>
+	</list>
+	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
+		<item key="MAIN_SASH_FORM_ORIENTATION_VERTICAL" value="false"/>
+		<item key="HORIZONTAL_SASH_FORM_WEIGHT" value="500,500"/>
+		<item key="STAGING_SASH_FORM_WEIGHT" value="507,492"/>
+		<item key="sortItemState" value="false"/>
+	</section>
+	<section name="GitCommitMessageComponent">
+		<list key="C:\Users\MOHIT\Desktop\2022_STS_Workspace\007_04_SpringBoot_DataREST\.git">
+			<item value="empty"/>
+		</list>
+		<list key="C:\Users\MOHIT\git\SpringSecurityCode\.git">
+			<item value="empty"/>
+		</list>
+		<list key="C:\Users\MOHIT\git\SpringBootStudy\.git">
+			<item value="empty"/>
+		</list>
+		<list key="C:\Users\MOHIT\Desktop\2022_STS_Workspace\006_03-SpringBoot_SpringDataJpa_JpaRepository\.git">
+			<item value="empty"/>
+		</list>
+		<list key="C:\Users\MOHIT\git\spring-boot3-jwt\.git">
+			<item value="empty"/>
+		</list>
+		<list key="C:\Users\MOHIT\git\repository\.git">
+			<item value="empty"/>
+		</list>
+		<list key="C:\Users\MOHIT\git\SpringBootDataJPA\.git">
+			<item value="empty"/>
+		</list>
+	</section>
+	<section name="GitImportWizard">
+		<item key="GitProjectsImportPage.STORE_NESTED_PROJECTS" value="false"/>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.dialogs.ReplaceTargetSelectionDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="534"/>
+		<item key="DIALOG_Y_ORIGIN" value="125"/>
+		<item key="DIALOG_WIDTH" value="875"/>
+		<item key="DIALOG_HEIGHT" value="585"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.dialogs.CompareTargetSelectionDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="534"/>
+		<item key="DIALOG_Y_ORIGIN" value="125"/>
+		<item key="DIALOG_WIDTH" value="875"/>
+		<item key="DIALOG_HEIGHT" value="585"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

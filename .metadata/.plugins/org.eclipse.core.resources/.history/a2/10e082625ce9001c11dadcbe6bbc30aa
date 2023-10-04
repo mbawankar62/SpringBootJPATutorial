@@ -1,0 +1,102 @@
+package com.mohit.streamapi;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+public class EmpTest {
+
+	public static void main(String[] args) {
+		
+		//Employee e1 = new Employee(1,"Mohit",10000,28, new Date(2011-10-03));
+		Employee e1 = new Employee(1,"Mohit Bawankar",10000,28);
+		Employee e2 = new Employee(2,"Rohit Shamji Bhandare",50000,25);
+		Employee e3 = new Employee(3,"Gohit Hajare",80000,30);
+		Employee e4 = new Employee(4,"Anant Pandey",30000,29);
+		
+		List<Employee> list = new ArrayList<>();
+		
+		list.add(e1);
+		list.add(e2);
+		list.add(e3);
+		list.add(e4);
+		list.add(new Employee(5,"Shraddha",150000,26));
+		
+		System.out.println("Employee before sorting : " +list);
+		
+		System.out.println("------------simple for each loop ----------------" );
+		for(Employee emp : list) {
+			System.out.println("Employee before sorting : " +emp);
+		}
+		
+		System.out.println("-------Employee before sorting forEach method of stream-------");
+		list.stream().forEach(System.out::println);
+
+		Collections.sort(list);
+		System.out.println("Employee after sorting : " +list);
+		
+		//Filter
+		
+		//List<Employee> filterList = list.stream().filter( e ->e.getSalary() >=50000).collect(Collectors.toList());
+		//System.out.println("Salary >50k after filter : " +filterList);
+		System.out.println("----------Salary >50k after filter :------------ ");
+		list.stream().filter( e ->e.getSalary() >=50000).forEach(System.out::println);
+		System.out.println("Salary >50k Total count :" +list.stream().filter(e ->e.getSalary() >=50000).count());
+		
+			//Sorting In Descending Order
+//List<Employee> sortedlist = list.stream().sorted((i1,i2)-> -i1.compareTo(i2)).collect(Collectors.toList());
+//List<Employee> sortedlist = list.stream().sorted().collect(Collectors.toList());
+		
+List<Employee> sortedlist = list.stream().sorted(Collections.reverseOrder()).collect(Collectors.toList());
+Map<String, List<Employee>> groupbyenamelist = list.stream().collect(Collectors.groupingBy(Employee::getName));
+		
+//Map<String, Map<Integer, List<Employee>>> sortedlist = list.stream().collect(Collectors.groupingBy(Employee::getName,
+//																Collectors.groupingBy(Employee::getAge)));
+		
+		System.out.println("Employees after groupby name  : " +groupbyenamelist);
+		System.out.println("Employees after sorting in descending  : " +sortedlist);
+		
+		Optional<Integer> findFirst = list.stream().map(e->e.getSalary()).sorted(Comparator.reverseOrder()).skip(1).findFirst();
+		System.out.println("Employees 2nd Highest salary : " +findFirst);
+		
+		/*
+		Iterator<Employee> itr = list.iterator();
+		while(itr.hasNext())
+		{
+			System.out.println("Employees after sorting : " +itr.next());
+		}
+		*/
+		
+		/*
+		for(Employee emp: list)
+		{
+			
+			System.out.println("Movies after sorting : " +emp);
+			
+		}
+		*/	
+		//function to sort according to lenght of string
+		/*
+		 *
+		 */
+		Comparator<String> c = (s1,s2)->{
+									int l1 =s1.length();
+									int l2 = s2.length();
+									if(l1<l2) return -1;
+									if(l1>l2) return 1;
+									else return s1.compareTo(s2);
+										};
+		List<String> sortedListcc = list.stream().map(e->e.getName()).sorted(c).collect(Collectors.toList());
+		System.out.println("sortedListcc:"+sortedListcc);
+		//*/
+	
+		}
+}
+

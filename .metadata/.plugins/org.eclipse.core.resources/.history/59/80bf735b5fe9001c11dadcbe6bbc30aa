@@ -1,0 +1,103 @@
+package com.mohit.streamapi;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class StreamDemo {
+
+	public static void main (String args[]) {
+		
+		List<Integer> list = new ArrayList<>();
+		
+		list.add(12);
+		list.add(07);
+		list.add(15);
+		list.add(50);
+		list.add(03);
+		
+		System.out.println("Original List:"+list);
+		
+		/*---------------------- Filter--------------------- */
+		System.out.println("---------------------- Filter---------------------");
+		List<Integer> streamResult =list.stream().filter(i->i%2==0).collect(Collectors.toList());
+		System.out.println("Original List after stream Filter:"+streamResult);
+		
+		long streamResult1 =list.stream().filter(i->i%2==0).count();
+		System.out.println("Original List after stream Filter.count=:"+streamResult1);
+		
+		/*---------------------- forEach--------------------- */
+		System.out.println("---------------------- forEach---------------------");
+		System.out.println("Original List after forEach:");
+		list.stream().forEach(System.out::println);
+		
+		Consumer<Integer> c=i-> {  System.out.println("the square of "+i+" is :"+(i*i));	
+								};
+								list.stream().forEach(c);	
+								
+		/*---------------------- map--------------------- */
+		System.out.println("---------------------- map---------------------");					
+		List<Integer> maplist = list.stream().map(i->i+5).collect(Collectors.toList());
+		System.out.println("Original List after stream map i+5=:"+maplist);
+		
+		/*---------------------- sorted--------------------- */
+		List<Integer> sortedList = list.stream().sorted().collect(Collectors.toList());
+		System.out.println("sorted list:"+sortedList);
+		
+		List<Integer> sortedList1 = list.stream().map(i->i*i).sorted().collect(Collectors.toList());
+		System.out.println("sorted list with map:"+sortedList1);
+		
+		List<Integer> sortedList2 = list.stream().sorted((i1,i2)->-i1.compareTo(i2)).collect(Collectors.toList());
+		System.out.println("sorted list compareTo and reverse order using sorted :"+sortedList2);
+		
+		/*---------------------- min and max--------------------- */
+		
+		Integer min = list.stream().min((i1,i2)->i1.compareTo(i2)).get();
+		System.out.println("Min value: " +min);
+		
+		Integer max = list.stream().max((i1,i2)->i1.compareTo(i2)).get();
+		System.out.println("Max value: " +max);
+		
+		/*---------------------- toArray--------------------- */
+		
+		//constructor reference
+		//(Integer[]::new); -->array of type integer
+		//Integer[] i = new Integer[]
+		Integer[] i =list.stream().toArray(Integer[]::new);
+		
+		for(Integer i1 : i) {
+		System.out.println(" list to toArray : " +i1);
+		}
+		
+		//or
+		System.out.println(" list to toArray by stream forEach : ");
+		Stream.of(i).forEach(System.out::println);
+		
+		//Creating Stream from From Collections
+		Collection<String> collection = Arrays.asList("JAVA", "J2EE", "Spring", "Hibernate");
+        Stream<String> stream2 = collection.stream();
+        stream2.forEach(System.out::println);
+
+        List<String> list3 = Arrays.asList("JAVA", "J2EE", "Spring", "Hibernate");
+        Stream<String> stream3 = list3.stream();
+        stream3.forEach(System.out::println);
+
+        Set<String> set = new HashSet<>(list3);
+        Stream<String> stream4 = set.stream();
+        stream4.forEach(System.out::println);
+        
+        //remove duplicate
+        ArrayList<Integer> arlist = new ArrayList<>(Arrays.asList(1,1,2,3,2,3,3,4,4,4));
+        arlist.stream().distinct().collect(Collectors.toList());
+        System.out.println(" list to unique arraylist:"+arlist);
+        
+   
+		
+	}
+}

@@ -1,0 +1,46 @@
+package com.mohit.streamapi;
+
+import java.util.HashMap;
+import java.util.Map;
+
+class Student{
+	
+	private String name;
+	private int marks;
+	
+	public Student(String name, int marks) {
+		super();
+		this.name = name;
+		this.marks = marks;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", marks=" + marks + "]";
+	}
+	
+	
+}
+
+public class Student_name_marks {
+	public static void main(String[] args) {
+		Student s1 = new Student("Mohit", 70);
+		Student s2 = new Student("Anant", 80);
+		Student s3 = new Student("Rahul", 100);
+
+		Map<Integer, Student> map = new HashMap<>();
+		map.put(1, s1);
+		map.put(2, s2);
+		map.put(3, s3);
+		
+		System.out.println(map);
+		
+		for(Map.Entry<Integer,Student> entry:map.entrySet()) {
+			System.out.println("Student_Id::"+entry.getKey()+"  Student_Name::"+entry.getValue());
+		}
+		
+		for(Map.Entry<Integer,Student> entry1:map.entrySet()) {
+			System.out.println("Student_Id::"+entry1.getKey()+"  Student_Name::"+entry1.getValue());
+		}
+	}
+}

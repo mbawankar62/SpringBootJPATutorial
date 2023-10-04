@@ -1,0 +1,10 @@
+package com.mohit.corejava.String;
+
+public class StringTestLiteral_Heap {
+
+	public static void main(String[] args) {
+
+		
+	}
+
+}

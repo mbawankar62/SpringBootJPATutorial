@@ -1,0 +1,21 @@
+package com.hibernate.demo;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.hibernate.demo.entity.Student;
+import com.hibernate.demo.entity.Util.HibernateUtil;
+
+@SpringBootApplication
+public class HibernateDemoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(HibernateDemoApplication.class, args);
+	}
+
+	
+}

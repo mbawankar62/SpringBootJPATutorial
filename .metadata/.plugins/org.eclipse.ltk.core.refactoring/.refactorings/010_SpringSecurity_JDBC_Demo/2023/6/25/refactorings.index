@@ -1,0 +1,5 @@
+1687194256890	Rename package 'com.springboot.security'
+1687194397353	Rename resource '04-setup-spring-security-demo-database-plaintext.sql'
+1687194454186	Rename resource '06-setup-spring-security-demo-database-bcrypt-custom-table-names.sql'
+1687194485707	Rename resource '05-setup-spring-security-demo-database-bcrypt.sql'
+1687194964637	Copy compilation unit

@@ -1,0 +1,48 @@
+package com.mohit.corejava.codedecode;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.OptionalInt;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+//https://www.youtube.com/watch?v=RynqGUbgw9k&list=PLyHJZXNdCXsfcMboYwGoL6wKAFPxljz5W&index=8&ab_channel=CodeDecode
+public class Test {
+
+	public static void main(String[] args) {
+
+		int arr[]= {1,2,3,4,5,1};
+		int arr2[]= {1,2,3,8,0,10};
+		
+		//1.find second smallest values Expected Output::2
+		int output = Arrays.stream(arr).sorted().skip(1).findFirst()
+						.orElseThrow(()->new IllegalArgumentException("no such element found"));
+		System.out.println("Second smallest number:"+output);//1
+		
+		int output1 = Arrays.stream(arr).distinct().sorted().skip(1).findFirst()
+				.orElseThrow(()->new IllegalArgumentException("no such element found"));
+		System.out.println("Second smallest number:"+output1);//2
+		
+		//2.find common element from 2 arrays.
+		/** boxed() int --->Integer" **/
+		List<Integer> CommonElements = Arrays.stream(arr).filter(number->Arrays.stream(arr2).anyMatch(arr2num->arr2num==number)
+											 .boxed().collect(Collectors.toList()));
+						  
+		System.out.println("CommonElements:"+CommonElements);
+		
+		//3.Reversing an array of integers in-place:
+		//it means don't create new array just swap within array
+		IntStream.range(0, arr.length/2).forEach(i->{
+			int temp=arr[i];
+			arr[i]= arr[arr.length-1];
+			arr[arr.length-1] = temp;
+		});
+		System.out.println("Reversing an array of integers in-place:"+Arrays.toString(arr));
+		
+		//4.Finding the length of the longest string in an array:
+		String input[]= {"Mohit","Bawankar","Kharbi","Naka","Engineer"};
+		OptionalInt mapToInt = Arrays.stream(input).mapToInt(String::length).max();
+		System.out.println("Max lenght string::"+mapToInt);
+		Arrays.stream(input).collect(Collectors.groupingBy(input.length))
+	}
+
+}

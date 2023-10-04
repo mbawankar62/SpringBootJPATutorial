@@ -1,0 +1,17 @@
+package com.mohit.corejava.protectedexamples1;
+
+class Class_A {
+
+	protected void display() 
+    { 
+        System.out.println("GeeksforGeeks"); 
+    } 
+}
+
+class Class_AA extends Class_A {
+
+	protected void display() 
+    { 
+        System.out.println("GeeksforGeeks"); 
+    } 
+}

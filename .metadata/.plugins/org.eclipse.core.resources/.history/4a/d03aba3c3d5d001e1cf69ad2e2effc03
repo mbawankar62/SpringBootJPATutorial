@@ -1,0 +1,12 @@
+package com.mohit.corejava.protectedexamples2;
+
+import com.mohit.corejava.protectedexamples1.Class_AA;
+
+public class Class_B extends Class_AA{
+
+	public static void main(String args[])
+    {
+		Class_AA obj = new Class_AA();
+        obj.display();
+    }
+}

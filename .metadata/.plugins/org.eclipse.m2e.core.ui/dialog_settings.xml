@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="C:\Users\MOHIT\Desktop\2022_STS_Workspace\009-spring-boot-rest-security"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<item key="catalog" value="All Catalogs"/>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+		</list>
+		<list key="groupId">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="C:\Users\MOHIT\Desktop\2022_STS_Workspace\004_SpringMVC_noXML"/>
+			<item value="C:\Users\MOHIT\Desktop\2022_STS_Workspace\jwt-apigateway-security"/>
+			<item value="C:\Users\MOHIT\Desktop\2022_STS_Workspace\saga-choreography-example"/>
+			<item value="C:\Users\MOHIT\Desktop\2022_STS_Workspace\spring-boot-security-oauth2-example"/>
+			<item value="C:\Users\MOHIT\Desktop\KAFKA\springboot-kafka-course"/>
+			<item value="C:\Users\MOHIT\Desktop\2022_STS_Workspace\spring-boot-multiple-datasource"/>
+			<item value="https://github.com/Java-Techie-jt/spring-boot-multiple-datasource.git"/>
+			<item value="C:\Users\MOHIT\Desktop\2022_STS_Workspace\spring-boot3-jwt"/>
+			<item value="C:\Users\MOHIT\Desktop\2022_STS_Workspace\spring-security-jwt-example"/>
+			<item value="C:\Users\MOHIT\Desktop\2022_STS_Workspace\spring-boot-security-3.0"/>
+			<item value="C:\Users\MOHIT\Desktop\2022_STS_Workspace\006_03-SpringBoot_SpringDataJpa_JpaRepository"/>
+			<item value="C:\Users\MOHIT\Desktop\2022_STS_Workspace\spring-boot-ecommerce"/>
+			<item value="C:\Users\MOHIT\Desktop\2022_STS_Workspace\012_SpringSecurity_JWT_JAVATechiee -"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+</section>

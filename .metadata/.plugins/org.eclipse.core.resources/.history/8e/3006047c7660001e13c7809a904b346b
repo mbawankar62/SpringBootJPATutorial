@@ -1,0 +1,101 @@
+package com.luv2code.springboot.cruddemo.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.luv2code.springboot.cruddemo.dao.EmployeeRepository;
+import com.luv2code.springboot.cruddemo.entity.Employee;
+
+@Service
+public class EmployeeServiceImpl implements EmployeeService {
+
+	private EmployeeRepository employeeRepository;
+	
+	@Autowired
+	public EmployeeServiceImpl(EmployeeRepository theEmployeeRepository) {
+		employeeRepository = theEmployeeRepository;
+	}
+	
+	@Override
+	public List<Employee> findAll() {
+		return employeeRepository.findAll();
+	}
+
+	@Override
+	public Employee findById(int theId) {
+		Optional<Employee> result = employeeRepository.findById(theId);
+		
+		Employee theEmployee = null;
+		
+		if (result.isPresent()) {
+			theEmployee = result.get();
+		}
+		else {
+			// we didn't find the employee
+			throw new RuntimeException("Did not find employee id - " + theId);
+		}
+		
+		return theEmployee;
+	}
+
+	@Override
+	public void save(Employee theEmployee) {
+		employeeRepository.save(theEmployee);
+	}
+
+	@Override
+	public void deleteById(int theId) {
+		employeeRepository.deleteById(theId);
+	}
+	
+	@Override
+	public Employee updateEmployee(int id, Employee theEmployee) {
+		// get the Employee from DB by id update with new value getting from request
+		Employee employee = employeeRepository.findById(id).get(); // DB
+		// employee.setId(theEmployee.getId());
+		employee.setFirstName(theEmployee.getFirstName());
+		employee.setLastName(theEmployee.getLastName());
+		employee.setEmail(employee.getEmail());
+		return employeeRepository.save(employee);
+	}
+	
+	 /*
+	@Override
+    public Employee updateEmployee(int id) {
+
+		//Employee empWithId = employeeRepository.findById(id)
+				//.orElseThrow(() -> new RuntimeException("Emp with given id :" +id));
+
+		//Employee updatedEmployee = employeeRepository.save(empWithId);
+
+       // return mapToEmployee(updatedEmployee);
+		return employeeRepository.findById(id)
+			      .map(employee -> {
+			        employee.setName(newEmployee.getName());
+			        employee.setRole(newEmployee.getRole());
+			        return repository.save(employee);
+			      })
+			      .orElseGet(() -> {
+			        newEmployee.setId(id);
+			        return repository.save(newEmployee);
+			      });
+    }
+
+	private Employee mapToEmployee(Employee theEmployee){
+		Employee employee = new Employee();
+		employee.setId(theEmployee.getId());
+		employee.setFirstName(theEmployee.getFirstName());
+		employee.setLastName(theEmployee.getLastName());
+		employee.setEmail(employee.getEmail());
+        return employee;
+    }*/
+}
+
+
+
+
+
+
