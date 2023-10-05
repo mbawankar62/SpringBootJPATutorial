@@ -29,4 +29,10 @@ public interface EmployeeService {
 	
 	public Page<Employee> findEmployeeWithPaginationAndSorting(int offset,int pageSize,String field);
 	
+	public List<Employee> findByEmplyeeFirstNameAndEmployeeEmail();
+	
+	//public Employee findByEmail(String email);
+	
+	public Employee saveEmployee(Employee theEmployee);
+	
 }

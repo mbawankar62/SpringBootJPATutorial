@@ -9,6 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.common.net.MediaType;
 import com.mohit.springboot.cruddemo.entity.Employee;
 import com.mohit.springboot.cruddemo.exception.EmployeeNotFoundException;
 import com.mohit.springboot.cruddemo.pagingandsorting.APIResponseWithPagingAndSorting;
@@ -78,10 +81,32 @@ public class EmployeeRestController {
 		return theEmployee;
 	}
 	
+	//25 Aug 2023 Sharad
+	//here we will get 201 status code
+	@PostMapping("/addEmployees")
+	public ResponseEntity<Employee> addEmployee_1(@Valid @RequestBody Employee theEmployee) {
+		
+		// also just in case they pass an id in JSON ... set id to 0
+		// this is to force a save of new item ... instead of update
+		
+		theEmployee.setId(0);
+		
+		Employee emp =employeeService.saveEmployee(theEmployee);
+		
+		return new ResponseEntity<Employee>(emp,HttpStatus.CREATED);
+	}
+	
 	// add mapping for PUT /employees - update existing employee
 	
 	@PutMapping("/employees")
 	public Employee updateEmployee(@RequestBody Employee theEmployee) {
+		
+		employeeService.save(theEmployee);
+		return theEmployee;
+	}
+	
+	@PatchMapping("/employees")
+	public Employee updateEmployee2(@RequestBody Employee theEmployee) {
 		
 		employeeService.save(theEmployee);
 		return theEmployee;
@@ -194,6 +219,19 @@ public class EmployeeRestController {
 	        Page<Employee> productsWithPagination = employeeService.findEmployeeWithPaginationAndSorting(offset, pageSize, field);
 	        return new APIResponseWithPagingAndSorting<>(productsWithPagination.getSize(), productsWithPagination);
 	    }
+	 
+	 	@GetMapping("/findByEmplyeeFirstNameAndEmployeeEmail")
+		//@ResponseBody
+		public List<Employee> findByEmplyeeFirstNameAndEmployeeEmail() {
+			return employeeService.findByEmplyeeFirstNameAndEmployeeEmail();
+		}
+	 	
+	 	//
+	    //public Employee testFindByEmail(String email) {	     
+	       
+	     //  Employee result = employeeService.findByEmail(email);	     
+	    //   return result;	     
+	    //}
 }
 
 

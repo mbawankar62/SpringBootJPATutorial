@@ -138,6 +138,25 @@ public class EmployeeServiceImpl implements EmployeeService {
 	    	Page<Employee> products = employeeRepository.findAll(PageRequest.of(offset, pageSize,Sort.by(Sort.Direction.ASC,field)));
 	        return  products;
 	    }
+
+		
+		public List<Employee> findByEmplyeeFirstNameAndEmployeeEmail() {
+			//List<Employee> findByEmplyeeFirstNameAndEmployeeEmail = employeeRepository.findEmplyeeByFirstNameAndEmail();
+			//return findByEmplyeeFirstNameAndEmployeeEmail;
+			return null;
+		}
+		
+	  // public Employee findByEmail(String email) {	     
+		//       Employee result = employeeRepository.findByEmail(email);	     
+		//       return result; 
+		//    }
+	   
+	   //sharad 201 demo 
+	   @Override
+	   public Employee saveEmployee(Employee theEmployee) {
+			return employeeRepository.save(theEmployee);
+		}
+		
 		
 }
 

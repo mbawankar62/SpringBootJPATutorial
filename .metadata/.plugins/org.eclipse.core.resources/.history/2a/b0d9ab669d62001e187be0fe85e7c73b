@@ -1,0 +1,10 @@
+package com.mohit.corejava;
+
+public class Fibonacci_Factorials {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

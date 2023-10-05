@@ -5,10 +5,27 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+
+//1st way
+//this below are jpql queries 
+//@NamedQuery(name = "Employee.findByEmail",query = "select e from Employee e where e.email = ?1")
+//@NamedQuery(name = "Employee.fetchByLastNameLength",query = "SELECT e FROM Employee e WHERE CHAR_LENGTH(e.lastname) =:length ")
+/*@NamedQueries(value = {
+	    @NamedQuery(name = "User.findByLastname", query = "select u from User u where u.lastname = ?1")
+	})*/
+//2nd way
+//we can write sql queries with the help of native queries
+//@NamedNativeQuery(name = "Employee.findByEmailAddress", query = "select * from users where email_address = ?1", resultClass = Employee.class)
+//@NamedNativeQueries(value = {
+  //@NamedNativeQuery(name = "Employee.findByLastname", query = "select * from users where lastname = ?1", resultClass = Employee.class) })
 @Entity
 @Table(name="employee")
 public class Employee {
