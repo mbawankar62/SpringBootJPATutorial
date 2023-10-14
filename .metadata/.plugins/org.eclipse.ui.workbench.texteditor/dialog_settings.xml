@@ -8,6 +8,8 @@
 		<item key="isRegEx" value="false"/>
 		<item key="selection" value=""/>
 		<list key="findhistory">
+			<item value="e-&gt;e.getAge() &gt;= 30"/>
+			<item value="&amp;&amp;"/>
 			<item value="Collectors.averaging"/>
 			<item value="Message sent"/>
 			<item value="Message sent to the topic"/>

@@ -21,11 +21,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.google.common.net.MediaType;
+//import com.google.common.net.MediaType;
 import com.mohit.springboot.cruddemo.entity.Employee;
 import com.mohit.springboot.cruddemo.exception.EmployeeNotFoundException;
 import com.mohit.springboot.cruddemo.pagingandsorting.APIResponseWithPagingAndSorting;
 import com.mohit.springboot.cruddemo.service.EmployeeService;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 
 //http://localhost:8055/employee-jpaRepository/empController/employees
 //@Controller
@@ -45,7 +48,9 @@ public class EmployeeRestController {
 	}
 	
 	// expose "/employees" and return list of employees
+	
 	@GetMapping("/employees")
+	@Operation(summary = "it will return all employee" ,description = "no need to pass parameter")
 	//@ResponseBody
 	public List<Employee> findAll() {
 		return employeeService.findAll();
@@ -54,8 +59,23 @@ public class EmployeeRestController {
 	// add mapping for GET /employees/{employeeId}
 	
 	@GetMapping("/employees/{employeeId}")
+	@Operation(summary = "it will return employee with specific id" ,description = "emploee record will get")
+	//public Employee getEmployee(@Parameter(required = true , description = "employee id in int required") @PathVariable int employeeId) {
 	public Employee getEmployee(@PathVariable int employeeId) {
+		LOGGER.info("Finding Employee by ID:"+employeeId);
+		Employee theEmployee = employeeService.findById(employeeId);
 		
+		if (theEmployee == null) {
+			throw new RuntimeException("Employee id not found - " + employeeId);
+		}
+		
+		return theEmployee;
+	}
+	
+	@GetMapping("/employees22/{employeeId}/{firstName}")
+	@Operation(summary = "it will return employee with specific id" ,description = "emploee record will get")
+	//public Employee getEmployee(@Parameter(required = true , description = "employee id in int required") @PathVariable int employeeId) {
+	public Employee getEmployee22(@PathVariable int employeeId , @PathVariable String firstName ) {
 		LOGGER.info("Finding Employee by ID:"+employeeId);
 		Employee theEmployee = employeeService.findById(employeeId);
 		
@@ -70,6 +90,19 @@ public class EmployeeRestController {
 	
 	@PostMapping("/employees")
 	public Employee addEmployee(@Valid @RequestBody Employee theEmployee) {
+		
+		// also just in case they pass an id in JSON ... set id to 0
+		// this is to force a save of new item ... instead of update
+		
+		theEmployee.setId(0);
+		
+		employeeService.save(theEmployee);
+		
+		return theEmployee;
+	}
+	
+	@GetMapping("/employeesbygetmethod")
+	public Employee addEmployeebyGet(@Valid @RequestBody Employee theEmployee) {
 		
 		// also just in case they pass an id in JSON ... set id to 0
 		// this is to force a save of new item ... instead of update

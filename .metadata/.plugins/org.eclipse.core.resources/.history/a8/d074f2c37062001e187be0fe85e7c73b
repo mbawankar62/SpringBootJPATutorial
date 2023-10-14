@@ -1,9 +1,0 @@
-package com.spring.java.config.demo;
-
-public class HappyFortuneService implements FortuneService{
-
-	@Override
-	public String getFortune() {
-		return "Today is a happy day";
-	}
-}

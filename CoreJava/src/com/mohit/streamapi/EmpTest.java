@@ -46,7 +46,6 @@ public class EmpTest {
 		//or
 		list.stream().sorted(Comparator.comparing(Employee::getAge).reversed()).forEach(System.out::println);
 	
-		
 		System.out.println("--------------------Comparing without compare to Overriding End ----------------");
 		System.out.println("------------simple for each loop ----------------" );
 		
@@ -66,18 +65,23 @@ public class EmpTest {
 		
 		//Filter
 		
-		List<Employee> filterList = list.stream().filter( e ->e.getSalary() >=50000).collect(Collectors.toList());
+		List<Employee> filterList = 
+				list.stream().filter( e ->e.getSalary() >=50000).collect(Collectors.toList());
 		System.out.println("Salary >50k after filter : " +filterList);
 		System.out.println("----------Salary >50k after filter :------------");
 		list.stream().filter( e ->e.getSalary() >=50000).forEach(System.out::println);
 		System.out.println("Salary >50k Total count :" +list.stream().filter(e ->e.getSalary() >=50000).count());
 		
+		
+		List<Employee> Name_Gender = list.stream().filter(e->e.getGender() == "female" && e.getName().startsWith("S")).collect(Collectors.toList());
+		System.out.println("Name_Gender::"+Name_Gender);
+		
 	/*
-	 List<Employee> tempList = empList.stream()
+	 List<Employee> tempList = list.stream()
 	              .filter(e -> "Manager".equalsIgnoreCase(e.getDesignation()) && e.getAge() > 30)
 	              .collect(Collectors.toList());
-	 tempList.forEach(e -> System.out.println("Designation :- " + e.getDesignation() + " , Age :- " + e.getAge()));
-	*/
+	 tempList.forEach(e -> System.out.println("Designation :- " + e.getDesignation() + " , Age :- " + e.getAge()));*/
+	
 		
 	//male emp with min salary
 	Employee MaleEmpWithMinSal = list.stream().filter(e->e.getGender()=="male").collect(Collectors.minBy(Comparator.comparing(Employee::getSalary))).get();	

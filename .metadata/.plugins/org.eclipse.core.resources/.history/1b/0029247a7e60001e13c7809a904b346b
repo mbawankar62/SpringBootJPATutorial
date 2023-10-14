@@ -1,7 +1,0 @@
-package com.luv2code.springboot.cruddemo.pagingandsorting;
-
-public class APIResponseWithPagingAndSorting<T>{
-
-	 int recordCount;
-	 T response;
-}

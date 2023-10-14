@@ -1,5 +1,9 @@
 package com.luv2code.springboot.cruddemo;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doCallRealMethod;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -51,6 +55,24 @@ public class EmployeeRestControllerTest {
 		
 		//assertEquals("Hello World",result.getResponse().getContentAsString() );
 		
+	}
+	
+	@Test
+	public void testSave() throws Exception{
+		
+		//doCallRealMethod().when(mockedUserRepository).updateName(anyLong(), anyString());
+		//userService.updateName(1L,"calling real method");
+		//verify(mockedUserRepository, times(1)).add(1L,"calling real method");
+		
+		
+		doCallRealMethod().when(employeeService).save(any());
+		 
+		Employee emp = new Employee();
+		emp.setFirstName("mohit in test class");
+		
+		employeeService.save(emp);
+		
+		verify(employeeService, times(1));
 	}
 
 }

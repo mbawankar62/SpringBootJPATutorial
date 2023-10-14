@@ -13,10 +13,14 @@ class Parent {
 }
 
 class subclass1 extends Parent {
+	
 	void Print() {
 		System.out.println("subclass1");
 	}
 	
+	void Print2() {
+		System.out.println("subclass1 Print2");
+	}
 	public static void testMethod() {
 		System.out.println("subclass1 class static method");
 	}
@@ -49,6 +53,10 @@ public class PolyMorphism {
  
         a = new subclass2();
         a.Print();
+        
+        Parent parent = new subclass1();
+        //parent.print2(); // compile time
+        
 
 	}
 

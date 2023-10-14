@@ -85,6 +85,8 @@ public class Student_name_marks {
 	    List<Integer> listInt = Arrays.asList(1,2,3,4,5,6,2,4,3,1,1,1);
 	    Map<Integer, Long> collectWithCount = listInt.stream().collect((Collectors.groupingBy(Function.identity(),Collectors.counting())));
 	    System.out.println(collectWithCount);
+	    
+	    //interview question
 	    LongSummaryStatistics longSummaryStatistics = collectWithCount.entrySet().stream().collect(Collectors.summarizingLong(e->e.getValue()));
 	    System.out.println(longSummaryStatistics);
 	    System.out.println(longSummaryStatistics.getSum());

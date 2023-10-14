@@ -10,14 +10,14 @@ class Class_A {
 
 public class Class_AA extends Class_A {
 
-	/*protected void display() 
+	protected void display() 
     { 
         System.out.println("GeeksforGeeks-AA"); 
-    } */
+    } 
 	
 	public static void main(String args[])
     {
-		Class_AA obj = new Class_AA();
+		Class_A obj = new Class_AA();
         obj.display();
     }
 }

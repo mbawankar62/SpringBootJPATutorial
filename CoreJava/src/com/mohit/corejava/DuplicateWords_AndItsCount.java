@@ -15,23 +15,28 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 public class DuplicateWords_AndItsCount {
+	
     public static void main(String args[]) {
+    	
       // Given Input String containing duplicate words
       String input = "Geeksforgeeks";
       
-     // Set<String> uniqueWords2 = new HashSet<>(Arrays.asList(input));
-      //System.out.println("unique word using set:"+uniqueWords2);
+      Set<String> uniqueWords2 = new HashSet<>(Arrays.asList(input));
+      System.out.println("unique word using set:"+uniqueWords2);
       
       // Converting given Input String to lowerCase
       //input = input.toLowerCase();
-      /* Split the given Input String into words using 
-      built-in split() method */
+      
+      /* Split the given Input String into words using built-in split() method */
+     
       String[] strArray = input.split("");	
+      
       System.out.println("strArray:" + Arrays.toString(strArray));
-		// Declare List of String that will contain repeated words	 
-		List<String> repeatedWords = new ArrayList<>();
+      
+	 // Declare List of String that will contain repeated words	 
+	 List<String> repeatedWords = new ArrayList<>();
 
-		// Declare HashSet of String that will contain unique words
+	// Declare HashSet of String that will contain unique words
 		Set<String> uniqueWords = new HashSet<>();
 
 		for (String str : strArray) {
@@ -42,6 +47,7 @@ public class DuplicateWords_AndItsCount {
 		System.out.println("repeated:" + repeatedWords);
 		
 /*
+
 Find and count duplicates in an Arrays :
 Using Stream.distinct() method
 Using Stream.filter() and Collections.frequency() methods
@@ -50,7 +56,8 @@ Using Collectors.toMap() method and Method Reference Math::addExact for summatio
 Using Collectors.groupingBy() and Collectors.counting() methods
 Using Map.getOrDefault() and Collection.forEach() methods
 Using Map.merge() and Collection.forEach() methods and lambda Expression for counting duplicates
- */
+
+*/
 		//String input_1= "12456733";
 		//String[] companies = input_1.split("");
 		//String[] companies = {"Meta", "Apple","Amazon", "Netflix","Meta","Google","Apple"};
@@ -61,7 +68,7 @@ Using Map.merge() and Collection.forEach() methods and lambda Expression for cou
         
         // 2. get unique elements after removing duplicates
         String[] distinctCompanies = Arrays.stream(companies).distinct().toArray(String[]::new);
-                
+        
         // 2.1 print unique elements
         System.out.println("\n2. Unique elements in String[] array : \n");
         Arrays.stream(distinctCompanies).forEach(System.out::println);
@@ -131,20 +138,21 @@ Using Map.merge() and Collection.forEach() methods and lambda Expression for cou
         uniqueCompanies.forEach(System.out::println);
         
         /*************************************************************************************/ 
-        	String input_1= "12456733";
-      		String[] companies1 = input_1.split("");
+        String input_1= "12456733";
+      	String[] companies1 = input_1.split("");
         System.out.println();
         // 4. get duplicate count using Map
         
-     // 3. get duplicate elements
-        Set<String> duplicateCompanies1 = Arrays.stream(companies1)
-                						.filter(company -> Collections.frequency(Arrays.asList(companies1), company) > 1)
-                						.collect(Collectors.toSet());
-        System.out.println("duplicateCompanies1duplicateCompanies1duplicateCompanies1::--->"+duplicateCompanies1);
+   // 3. get duplicate elements
+   Set<String> duplicateCompanies1 = Arrays.stream(companies1)
+                				     .filter(company -> Collections.frequency(Arrays.asList(companies1), company) > 1)
+                					 .collect(Collectors.toSet());
+   System.out.println("duplicateCompanies1duplicateCompanies1duplicateCompanies1::--->"+duplicateCompanies1);
+        
         // How to find only duplicate elements with its count from the String ArrayList in Java8?
         List<String> names = Arrays.asList("AA", "BB", "AA", "CC");
         String input123="llkklll";
-       List<String> name12345=Arrays.asList(input123.split(""));
+        List<String> name12345=Arrays.asList(input123.split(""));
         Map<String,Long> namesCount = name12345.stream() .filter(x->Collections.frequency(name12345, x)>1)
         									.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
                          
@@ -185,9 +193,9 @@ Using Map.merge() and Collection.forEach() methods and lambda Expression for cou
     	list.add("a");
     	
     	//find first duplicate value
-    	//Optional<String> findFirst = list.stream().filter(a->Collections.frequency(list, a)>1).findFirst();
+    	Optional<String> findFirst = list.stream().filter(a->Collections.frequency(list, a)>1).findFirst();
     				// .forEach(sout->System.out.println("find first duplicate value :"+sout));
-    	//System.out.println("find first duplicate value : " + findFirst);
+    	System.out.println("find first duplicate value : " + findFirst);
     	
     	System.out.println("\nExample 1 - Count 'a' with frequency");
     	System.out.println("a : " + Collections.frequency(list, "a"));
